@@ -1,12 +1,6 @@
 
-let selectedForecast = '';
 let selectedTerm = '';
 let entries = [];
-
-function selectForecast(type) {
-  selectedForecast = type;
-  document.getElementById("status").innerText = `Forecast set to: ${type}`;
-}
 
 function selectTerm(term) {
   selectedTerm = term;
@@ -18,10 +12,11 @@ function saveEntry() {
   const maxTemp = document.getElementById("maxTemp").value;
   const minTemp = document.getElementById("minTemp").value;
   const rainChance = document.getElementById("rainChance").value;
-  const chanceWord = document.getElementById("chanceWord").value;
+  const forecast = document.getElementById("weather").value;
+  const chanceWord = document.getElementById("chance").value;
 
-  if (!date || !selectedForecast || !maxTemp || !minTemp || !rainChance || !chanceWord) {
-    alert("Please fill in all fields and select a forecast.");
+  if (!date || !forecast || !maxTemp || !minTemp || !rainChance || !chanceWord) {
+    alert("Please fill in all fields.");
     return;
   }
 
@@ -31,7 +26,7 @@ function saveEntry() {
     maxTemp,
     minTemp,
     rainChance,
-    forecast: selectedForecast,
+    forecast,
     chanceWord
   });
 
@@ -44,8 +39,8 @@ function clearInputs() {
   document.getElementById("maxTemp").value = '';
   document.getElementById("minTemp").value = '';
   document.getElementById("rainChance").value = '';
-  document.getElementById("chanceWord").value = '';
-  selectedForecast = '';
+  document.getElementById("weather").selectedIndex = 0;
+  document.getElementById("chance").selectedIndex = 0;
 }
 
 function downloadCSV() {

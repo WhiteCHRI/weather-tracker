@@ -29,15 +29,28 @@
     <label>Min Temp: <input type="number" id="minTemp" /></label>
     <label>Chance of Rain (%): <input type="number" id="rainChance" /></label>
 
-    <div class="forecast-buttons">
-      <label>Forecast:</label>
-      <button onclick="selectForecast('Sunny')">Sunny</button>
-      <button onclick="selectForecast('Cloudy')">Cloudy</button>
-      <button onclick="selectForecast('Rainy')">Rainy</button>
-      <button onclick="selectForecast('Windy')">Windy</button>
-    </div>
+    <label>Forecast Type:</label>
+    <select id="weather">
+      <option>☁️ Cloudy</option>
+      <option>⛈️ Thunder storms</option>
+      <option>🌤️ Sunny and Cloudy</option>
+      <option>🌦️ Sunny and showers</option>
+      <option>🌧️ Rainy</option>
+      <option>🌨️ Snow</option>
+      <option>🌪️ Windy</option>
+      <option>☀️ Sunny</option>
+    </select>
 
-    <label>Chance Word: <input type="text" id="chanceWord" placeholder="e.g. Likely" /></label>
+    <label>Chance Word:</label>
+    <select id="chance">
+      <option>Impossible</option>
+      <option>Very unlikely</option>
+      <option>Unlikely</option>
+      <option>Maybe</option>
+      <option>Likely</option>
+      <option>Very likely</option>
+      <option>Certain</option>
+    </select>
 
     <button onclick="saveEntry()">💾 Save Entry</button>
     <button onclick="downloadCSV()">⬇️ Download CSV</button>
