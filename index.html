@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Weather Tracker</h1>
+
+  <div class="button-group">
+    <button onclick="selectTerm('Term 1')">Term 1</button>
+    <button onclick="selectTerm('Term 2')">Term 2</button>
+    <button onclick="selectTerm('Term 3')">Term 3</button>
+    <button onclick="selectTerm('Term 4')">Term 4</button>
+    <button onclick="selectTerm('Whole Year')">Whole Year</button>
+    <button onclick="selectTerm('Summer')">Summer</button>
+    <button onclick="selectTerm('Autumn')">Autumn</button>
+    <button onclick="selectTerm('Winter')">Winter</button>
+    <button onclick="selectTerm('Spring')">Spring</button>
+  </div>
+
+  <label for="date">Select Date:</label>
+  <input type="date" id="date" />
+
+  <div class="entry-form">
+    <label>Max Temp: <input type="number" id="maxTemp" /></label>
+    <label>Min Temp: <input type="number" id="minTemp" /></label>
+    <label>Chance of Rain (%): <input type="number" id="rainChance" /></label>
+
+    <label>Forecast Type:</label>
+    <select id="weather">
+      <option>☁️ Cloudy</option>
+      <option>⛈️ Thunder storms</option>
+      <option>🌤️ Sunny and Cloudy</option>
+      <option>🌦️ Sunny and showers</option>
+      <option>🌧️ Rainy</option>
+      <option>🌨️ Snow</option>
+      <option>🌪️ Windy</option>
+      <option>☀️ Sunny</option>
+    </select>
+
+    <label>Chance Word:</label>
+    <select id="chance">
+      <option>Impossible</option>
+      <option>Very unlikely</option>
+      <option>Unlikely</option>
+      <option>Maybe</option>
+      <option>Likely</option>
+      <option>Very likely</option>
+      <option>Certain</option>
+    </select>
+
+    <button onclick="saveEntry()">💾 Save Entry</button>
+    <button onclick="downloadCSV()">⬇️ Download CSV</button>
+  </div>
+
+  
+  <div id="status"></div>
+
+  <label for="csvUpload">Import Previous Data (CSV):</label>
+  <input type="file" id="csvUpload" accept=".csv" onchange="importCSV(event)" />
+
+  <h2>📋 Imported Data</h2>
+  <table id="importedTable" border="1" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Min Temp</th>
+        <th>Max Temp</th>
+        <th>Forecast</th>
+        <th>Chance %</th>
+        <th>Chance Word</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  
+  <h2>📆 Filter by Custom Date Range</h2>
+  <label>Start Date:</label> <input type="date" id="startDate" />
+  <label>End Date:</label> <input type="date" id="endDate" />
+  <button onclick="filterByCustomRange()">Filter Range</button>
+
+<h2>📊 Temperature Trend</h2>
+  <canvas id="tempChart" width="600" height="300"></canvas>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
