@@ -188,7 +188,7 @@ function filterByCustomRange() {
 }
 
 function syncToGoogleSheets(entry) {
-  const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE'; // Replace this
+  const scriptURL = https://script.google.com/macros/s/AKfycbzdtvnXw0r8nVZ-y9wt4QfSS1U0-cP-XUBHuzhUbilus3jSVeVvUlZZmviJIhh6LTnm4g/exec; // Replace this
   fetch(scriptURL, {
     method: 'POST',
     body: JSON.stringify(entry),
