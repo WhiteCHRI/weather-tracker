@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather Charts</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>📊 Weather Trends</h1>
+  <a href="index.html" style="display:block; text-align:center; margin-bottom:1rem;">⬅️ Back to Data Entry</a>
+
+  <canvas id="tempChart" width="600" height="400"></canvas>
+
+  <script>
+    const ctx = document.getElementById('tempChart').getContext('2d');
+    const tempChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [
+          {
+            label: 'Min Temp',
+            data: [12, 14, 13, 11],
+            borderColor: 'blue',
+            backgroundColor: 'lightblue',
+            fill: false,
+            tension: 0.2
+          },
+          {
+            label: 'Max Temp',
+            data: [22, 25, 24, 23],
+            borderColor: 'red',
+            backgroundColor: 'pink',
+            fill: false,
+            tension: 0.2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: 'Temperature (°C)' }
+          },
+          x: {
+            title: { display: true, text: 'Week' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
